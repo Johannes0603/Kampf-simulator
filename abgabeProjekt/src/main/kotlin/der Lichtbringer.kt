@@ -28,6 +28,9 @@ class Lichtbringer(name: String, private var mana: Int, hp: Int) : Gegner(name, 
         if(mana >= 100) {
         println("$name beschwört einen grässlichen.")
         val grässlicher = beschworener("grässlicher", 100)
+             fun toString(): String {
+                return("${this.name} ${this.hp}LP")
+            }
         this.beschworener = grässlicher
             mana -= 100
         }else{

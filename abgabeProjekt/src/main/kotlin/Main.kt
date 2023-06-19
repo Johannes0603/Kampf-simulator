@@ -9,6 +9,7 @@ fun main(args: Array<String>) {
     val gut2 = Held("Peter", 100)
     val eigeneEinheiten = listOf(gut1, gut2)
     val bös1 = Lichtbringer("dolf", 1000, 100)
+    val bös2 = beschworener("grässlicher", 50)
     var round = 1
     // loop
     while (gut1.lebendig() && gut2.lebendig() && bös1.lebendig()) {
