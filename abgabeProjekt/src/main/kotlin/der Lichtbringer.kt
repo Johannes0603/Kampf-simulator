@@ -34,20 +34,15 @@ class Lichtbringer(name: String, private var mana: Int, hp: Int) : Gegner(name, 
         this.beschworener = grässlicher
             mana -= 100
         }else{
-            println("$name hat die Hölle leergeräumt")
-        }
+            println("$name hat die Hölle leergeräumt") }
     }
     private fun ultimate(ziel: List<Held>){
         if(mana >= 200) {
             ziel.forEach { held ->
                 println(
-                    " $name macht ernst"
-                )
-                held.schadenerleiden(40)
-            }
+                    " $name macht ernst")
+                held.schadenerleiden(40) }
             mana -= 200
-        }else{
-            println("$name ist wohl zu erschöpft")
-        }
+        }else{ println("$name ist wohl zu erschöpft") }
     }
 }

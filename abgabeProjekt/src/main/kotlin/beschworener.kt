@@ -3,5 +3,9 @@ class beschworener (name: String, hp: Int) : Gegner(name, hp){
         return("${this.name} ${this.hp}LP")
     }
 
+    override fun attack(ziel: List<Held>) {
+        super.attack(ziel)
+    }
+
 
 }
