@@ -56,11 +56,11 @@ open class Held (var name: String,var mana: Int ,var hp: Int ){
 
 
 /*var Heiltrank = 3
-  var kokain = 2
+  var it = 2
   fun rausch(ziel: Held){
-      if (kokain > 0) {
+      if (it > 0) {
           ziel.mana += 20
-          kokain = -1
+          it = -1
           println("${ziel.name} macht sich wuschig")
       }else {
           println(" Ey Magier wir haben keinen Stoff mehr!!")
