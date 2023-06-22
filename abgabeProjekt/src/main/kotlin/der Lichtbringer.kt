@@ -1,7 +1,8 @@
 class Lichtbringer(name: String, private var mana: Int, hp: Int) : Gegner(name, hp) {
     override fun toString(): String {
-        return("${this.name} ${this.mana}Mana ${this.hp}LP")
+        return("${this.name} ${this.mana}Mana ${this.hp}HP")
     }
+
     override open fun aktion(held: List<Held>){
         var zufälligerAngriff = (1..4).random()
         when (zufälligerAngriff){

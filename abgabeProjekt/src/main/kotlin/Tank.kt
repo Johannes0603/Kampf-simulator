@@ -25,6 +25,12 @@ class Tank (name: String, mana: Int,hp: Int) : Held(name, mana, hp) {
             super.schadenerleiden(schaden)//stackOverflowError
         }
     }
+    override fun lebendig(): Boolean{
+        return hp > 0
+    }
+    override fun tot(): Boolean{
+        return hp <= 0
+    }
     override var Heiltrank = 3
     override var puderzucker = 2
     override fun rausch(ziel: Held){

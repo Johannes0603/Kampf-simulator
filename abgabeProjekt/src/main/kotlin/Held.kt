@@ -31,7 +31,7 @@ open class Held (var name: String,var mana: Int ,var hp: Int ){
     open fun schadenerleiden(schaden: Int){
         hp -= schaden
         if (hp < 0){
-            hp = 0 //sonst geht´s ins minus
+            hp = 0
         }
     }
     open fun lebendig(): Boolean{

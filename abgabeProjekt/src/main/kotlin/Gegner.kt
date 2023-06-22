@@ -1,7 +1,8 @@
+// return("${this.name} ${this.hp}LP")
 open class Gegner (val name: String, var hp: Int){
     override fun toString(): String {
        return "$name ($hp HP)" }
-    // return("${this.name} ${this.hp}LP")
+
 
     open fun aktion(ziel: List<Held>){
         var provoziertVon: Tank? = null
