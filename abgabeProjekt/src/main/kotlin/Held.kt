@@ -1,7 +1,7 @@
 import kotlin.random.Random
 import kotlin.random.nextInt
 
-open class Held (var name: String, var hp: Int, var mana: Int){
+open class Held (var name: String,var mana: Int ,var hp: Int ){
     override fun toString(): String {
         return ("${this.name} ${this.mana} Mana ${this.hp} HP")
     }

@@ -1,7 +1,7 @@
 import kotlin.random.Random
 import kotlin.random.nextInt
 
-class Tank (name: String, hp: Int, mana: Int) : Held(name, hp, mana) {
+class Tank (name: String, mana: Int,hp: Int) : Held(name, mana, hp) {
 
     override fun toString(): String {
         return("${this.name} ${this.mana}Mana ${this.hp}HP") }

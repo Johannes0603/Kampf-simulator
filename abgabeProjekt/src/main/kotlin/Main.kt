@@ -3,12 +3,12 @@ import kotlin.random.nextInt
 
 fun main(args: Array<String>) {
     val held1 = (Magier("magieBernd", 20, 50))
-    val held2 = (Held("peterHeld", 100, mana = 20))
+    val held2 = (Held("peterHeld", 100,  20))
     val held3 = (Tank("tankBernd", 200, 10))
     val eigeneEinheiten = mutableListOf<Held>()
     eigeneEinheiten.add(Magier("magieBernd", 20, 50))
-    eigeneEinheiten.add(Held("peterHeld", 100, mana = 20))
-    eigeneEinheiten.add(Tank("tankBernd", 200, 10))
+    eigeneEinheiten.add(Held("peterHeld", 100, 20))
+    eigeneEinheiten.add(Tank("tankBernd",10,20))
 
     val bös1 = Lichtbringer("dolf", 1000, 101)
     // val bös2 = beschworener("grässlicher", 50)
@@ -18,11 +18,17 @@ fun main(args: Array<String>) {
 
     //while (eigeneEinheiten.any { it.lebendig() } && bös1.lebendig()) {
     while(held1.hp > 0 && held2.hp > 0 && held3.hp > 0 && bös1.lebendig()) {
+        println()
         println("runde: $round")
         println("$eigeneEinheiten treffen auf $bös1 $gegner\n")
         round++
 
+        bös1.aktion(eigeneEinheiten)
         eigeneEinheiten.forEach() { Held ->
+            if (Held.tot()){
+                println("${Held.name} ist tot")
+                return@forEach
+            }
             println("${Held.name} ist an der Reihe.Was möchtest du tun?:")
             println("1. Angriff")
             println("2. blocken")
@@ -49,7 +55,7 @@ fun main(args: Array<String>) {
                 else -> println("ungültige Auswahl")
             }
         }
-        bös1.aktion(eigeneEinheiten)
+
         if (eigeneEinheiten.all { it.tot() }) {
             println("Gut wurde besiegt")
             break

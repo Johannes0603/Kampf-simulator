@@ -1,4 +1,4 @@
-class Magier(name: String,mana:Int, hp: Int) : Held(name, hp, mana) {
+class Magier(name: String,mana:Int, hp: Int) : Held(name, mana, hp) {
     override fun toString(): String {
         return("${this.name} ${this.mana}Mana ${this.hp}HP")
     }
