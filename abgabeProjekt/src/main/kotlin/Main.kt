@@ -5,12 +5,12 @@ fun main(args: Array<String>) {
 
 
     val eigeneEinheiten = mutableListOf<Held>()
-    eigeneEinheiten.add(Magier("testbernd", 20, 50))
-    eigeneEinheiten.add(Held("Peter", 100, mana = 20))
-    eigeneEinheiten.add(Tank("tankbernd",200, 10))
+    eigeneEinheiten.add(Magier("magieBernd", 20, 50))
+    eigeneEinheiten.add(Held("peterHeld", 100, mana = 20))
+    eigeneEinheiten.add(Tank("tankBernd", 200, 10))
 
     val bös1 = Lichtbringer("dolf", 1000, 10001)
-   // val bös2 = beschworener("grässlicher", 50)
+    // val bös2 = beschworener("grässlicher", 50)
     val gegner = mutableListOf<beschworener>()
     var round = 1
     // loop(gut1.lebendig() or gut2.lebendig() or gut3.lebendig()
@@ -21,31 +21,39 @@ fun main(args: Array<String>) {
         round++
 
         eigeneEinheiten.forEach() { Held ->
-        println("${Held.name} ist an der Reihe.Was möchtest du tun?:")
-        println("1. Angriff")
-        println("2. blocken")
-            if (Held is Tank){
+            println("${Held.name} ist an der Reihe.Was möchtest du tun?:")
+            println("1. Angriff")
+            println("2. blocken")
+            if (Held is Tank) {
                 println("3. Provozieren")
+            } else if (Held is Magier) {
+                println("3. Heal")
             }
 
-        val auswahl = readln()
-        when (auswahl) {
-            "1"-> {Held.attack(bös1)}
-            "2"-> { val blockSchaden = Held.block()
-                val gesamt = blockSchaden}
-            "3"->{ if (Held is Tank){
-                Held.provoziert = true
+            val auswahl = readln()
+            when (auswahl) {
+                "1" -> {
+                    Held.attack(bös1) }
+                "2" -> {
+                    val blockSchaden = Held.block()
+                    val gesamt = blockSchaden }
+                "3" -> {
+                    if (Held is Tank) {
+                        Held.provoziert = true }
+                }
+                else -> println("ungültige Auswahl")
             }
-            }else -> println("ungültige Auswahl") } }
+        }
         bös1.aktion(eigeneEinheiten)
-
-        if (eigeneEinheiten.all {it.tot()}){
+        if (eigeneEinheiten.all { it.tot() }) {
             println("Gut wurde besiegt")
             break
         }
-        if (!bös1.lebendig() && gegner.all {it.tot()})
+        if (!bös1.lebendig() && gegner.all { it.tot() })
             println("das böse wurde besiegt")
-        break}
+        break
+    }
+}
        /* if (eigeneEinheiten.all { it.tot() }){
             println("Das böse siegt")
             break }
@@ -58,4 +66,4 @@ fun main(args: Array<String>) {
     }else if (!bös1.lebendig()){
         println("$eigeneEinheiten wurde besiegt")
     break}*/
-}
+
