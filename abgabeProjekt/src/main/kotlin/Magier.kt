@@ -1,6 +1,6 @@
 class Magier(name: String,mana:Int, hp: Int) : Held(name, hp, mana) {
     override fun toString(): String {
-        return("${this.name} ${this.mana}Mana ${this.hp}LP")
+        return("${this.name} ${this.mana}Mana ${this.hp}HP")
     }
     override fun attack(ziel: Gegner) {
         if (mana >= 20){

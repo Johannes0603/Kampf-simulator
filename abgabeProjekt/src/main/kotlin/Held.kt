@@ -3,7 +3,7 @@ import kotlin.random.nextInt
 
 open class Held (var name: String, var hp: Int, var mana: Int){
     override fun toString(): String {
-        return("${this.name} ${this.hp}LP")
+        return "$name ($hp HP)"
     }
     open fun attack(ziel: Gegner){
         println("$name greift ${ziel.name} an.")
@@ -28,10 +28,12 @@ open class Held (var name: String, var hp: Int, var mana: Int){
             else -> println("Ungültige Auswahl")
         }
     }
+
+
     open fun schadenerleiden(schaden: Int){
         hp -= schaden
         if (hp < 0){
-            hp = 0
+            hp = 0 //sonst geht´s ins minus
         }
     }
     open fun lebendig(): Boolean{
@@ -40,4 +42,14 @@ open class Held (var name: String, var hp: Int, var mana: Int){
     open fun tot(): Boolean{
         return hp <= 0
     }
-}
+} /*var Heiltrank = 3
+  var kokain = 2
+  fun rausch(ziel: Held){
+      if (kokain > 0) {
+          ziel.mana += 20
+          kokain = -1
+          println("${ziel.name} macht sich wuschig")
+      }else {
+          println(" Ey Magier wir haben keinen Stoff mehr!!")
+      }
+  }*/

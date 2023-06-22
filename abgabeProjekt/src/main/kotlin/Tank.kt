@@ -4,7 +4,7 @@ import kotlin.random.nextInt
 class Tank (name: String, hp: Int, mana: Int) : Held(name, hp, mana) {
 
     override fun toString(): String {
-        return("${this.name} ${this.mana}Mana ${this.hp}LP") }
+        return("${this.name} ${this.mana}Mana ${this.hp}HP") }
     override fun attack(ziel: Gegner){
         println("$name greift ${ziel.name} an.")
         ziel.schadenerleiden(5)}
@@ -17,12 +17,12 @@ class Tank (name: String, hp: Int, mana: Int) : Held(name, hp, mana) {
         return blockSchaden
     }
     var provoziert = false
-    override fun schadenerleiden(schaden: Int){
+     fun schadenerleiden(schaden: Int){
         if (provoziert){
             provoziert = false
             println("$name macht ***** Sachen")
         }else {
-            super.schadenerleiden(schaden)//stackOverflowError
+            schadenerleiden(schaden)//stackOverflowError
         }
     }
 }
