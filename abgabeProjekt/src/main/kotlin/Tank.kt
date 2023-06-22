@@ -17,12 +17,22 @@ class Tank (name: String, hp: Int, mana: Int) : Held(name, hp, mana) {
         return blockSchaden
     }
     var provoziert = false
-     fun schadenerleiden(schaden: Int){
+     override fun schadenerleiden(schaden: Int){
         if (provoziert){
             provoziert = false
             println("$name macht ***** Sachen")
         }else {
-            schadenerleiden(schaden)//stackOverflowError
+            super.schadenerleiden(schaden)//stackOverflowError
         }
     }
-}
+    override var Heiltrank = 3
+    override var puderzucker = 2
+    override fun rausch(ziel: Held){
+        if (puderzucker > 0) {
+            ziel.mana += 20
+            puderzucker = -1
+            println("${ziel.name} macht sich wuschig")
+        }else {
+            println(" Ey Magier wir haben keinen Stoff mehr!!")
+        }
+}}

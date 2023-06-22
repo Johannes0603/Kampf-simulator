@@ -17,5 +17,13 @@ class Magier(name: String,mana:Int, hp: Int) : Held(name, hp, mana) {
         ziel.hp += 15
         println("${ziel.name} wurde geheilt")
     }
-
+    override fun rausch(ziel: Held){
+        if (puderzucker > 0) {
+            ziel.mana += 20
+            puderzucker = -1
+            println("${ziel.name} macht sich wuschig")
+        }else {
+            println(" Ey Magier wir haben keinen Stoff mehr!!")
+        }
+    }
 }

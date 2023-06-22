@@ -17,7 +17,7 @@ fun main(args: Array<String>) {
     // loop(gut1.lebendig() or gut2.lebendig() or gut3.lebendig()
 
     //while (eigeneEinheiten.any { it.lebendig() } && bös1.lebendig()) {
-    while(held1.hp > 0 && held2.hp > 0 && held3.hp > 0 && bös1.hp > 0) {
+    while(held1.hp > 0 && held2.hp > 0 && held3.hp > 0 && bös1.lebendig()) {
         println("runde: $round")
         println("$eigeneEinheiten treffen auf $bös1 $gegner\n")
         round++
@@ -35,16 +35,15 @@ fun main(args: Array<String>) {
             val auswahl = readln()
             when (auswahl) {
                 "1" -> {
-                    Held.attack(bös1)
-                }
+                    Held.attack(bös1) }
                 "2" -> {
                     val blockSchaden = Held.block()
-                    val gesamt = blockSchaden
-                }
+                    val gesamt = blockSchaden }
                 "3" -> {
                     if (Held is Tank) {
-                        Held.provoziert = true
-                    }
+                        Held.provoziert = true } }
+                "4" -> {
+
                 }
 
                 else -> println("ungültige Auswahl")
@@ -55,13 +54,18 @@ fun main(args: Array<String>) {
             println("Gut wurde besiegt")
             break
         }
+
         if (bös1.tot() && gegner.all { it.tot() }){
             println("das böse wurde besiegt")
             break}
 
     }
 }
-       /* if (eigeneEinheiten.all { it.tot() }){
+       /*
+        (eigeneEinheiten.all { it.tot() }) {
+            println("Gut wurde besiegt")
+            break
+        if (eigeneEinheiten.all { it.tot() }){
             println("Das böse siegt")
             break }
     if (bös1.tot()) {
