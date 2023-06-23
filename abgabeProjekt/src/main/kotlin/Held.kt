@@ -38,8 +38,11 @@ open class Held (var name: String,var mana: Int ,var hp: Int ){
         return hp > 0
     }
     open fun tot(): Boolean{
-        return hp <= 0
-    }
+        val tot = hp <= 0
+        if (tot) {
+            println("")
+        }
+        return tot}
 
     open var Heiltrank = 3
     open var puderzucker = 2

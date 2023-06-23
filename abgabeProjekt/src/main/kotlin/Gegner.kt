@@ -13,8 +13,7 @@ open class Gegner (val name: String, var hp: Int){
         var zufälligerAngriff = (1..2).random()
         when (zufälligerAngriff){
             1 -> attack(ziel)
-            2 -> attackAll(ziel)
-        }}
+            2 -> attackAll(ziel) }}
     }
     open fun attack(ziel: List<Held>){
         var randomHeld = ziel.random()
@@ -29,13 +28,15 @@ open class Gegner (val name: String, var hp: Int){
     open fun schadenerleiden(schaden: Int){
         hp -= schaden
         if (hp < 0){
-            hp = 0
-        }
+            hp = 0 }
     }
     open fun lebendig(): Boolean{
         return hp > 0
     }
     open fun tot(): Boolean{
-        return hp <= 0
+        val tot = hp <= 0
+        if (tot) {
+            println("$name ist tot")
+        }
+        return tot}
     }
-}

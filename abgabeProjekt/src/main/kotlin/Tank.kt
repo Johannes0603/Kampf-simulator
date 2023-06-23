@@ -22,15 +22,19 @@ class Tank (name: String, mana: Int,hp: Int) : Held(name, mana, hp) {
             provoziert = false
             println("$name macht ***** Sachen")
         }else {
-            super.schadenerleiden(schaden)//stackOverflowError
+            super.schadenerleiden(schaden)//ansonsten stackOverflowError
         }
     }
     override fun lebendig(): Boolean{
         return hp > 0
     }
     override fun tot(): Boolean{
-        return hp <= 0
-    }
+        val tot = hp <= 0
+        if (tot) {
+            println("")
+        }
+        return tot}
+
     override var Heiltrank = 3
     override var puderzucker = 2
     override fun rausch(ziel: Held){

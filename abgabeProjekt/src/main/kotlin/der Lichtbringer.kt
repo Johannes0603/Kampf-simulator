@@ -4,12 +4,12 @@ class Lichtbringer(name: String, private var mana: Int, hp: Int) : Gegner(name, 
     }
 
     override open fun aktion(held: List<Held>){
-        var zufälligerAngriff = (1..4).random()
+        var zufälligerAngriff = (1..2).random()
         when (zufälligerAngriff){
             1 -> attack(held)
             2 -> attackAll(held)
-            3 -> beschwörung()
-            4 -> ultimate(held)
+            //3 -> beschwörung()
+            //4 -> ultimate(held)
         }
     }
     override fun attack(ziel: List<Held>){
@@ -21,7 +21,7 @@ class Lichtbringer(name: String, private var mana: Int, hp: Int) : Gegner(name, 
     override fun attackAll(ziel: List<Held>) {
         ziel.forEach {held -> println(
             "$name fügt der Gruppe Schaden zu")
-            held.schadenerleiden(20)}
+            held.schadenerleiden(15)}
         mana -= 30
     }
     var beschworener: beschworener? = null
@@ -46,4 +46,5 @@ class Lichtbringer(name: String, private var mana: Int, hp: Int) : Gegner(name, 
             mana -= 200
         }else{ println("$name ist wohl zu erschöpft") }
     }
+
 }

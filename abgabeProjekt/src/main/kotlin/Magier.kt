@@ -26,4 +26,13 @@ class Magier(name: String,mana:Int, hp: Int) : Held(name, mana, hp) {
             println(" Ey Magier wir haben keinen Stoff mehr!!")
         }
     }
+    override fun lebendig(): Boolean{
+        return hp > 0
+    }
+    override fun tot(): Boolean{
+        val tot = hp <= 0
+        if (tot) {
+            println("")
+        }
+        return tot}
 }
